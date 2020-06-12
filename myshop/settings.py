@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import braintree
-from django.utils.translation import gettext_lazy as _
+
 
 
 
@@ -118,8 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
-    ('en', _('English')),
-    ('es', _('Spanish')),
+    ('en', ('English')),
+    ('es', ('Spanish')),
 )
 
 
@@ -146,17 +145,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CART_SESSION_ID = 'cart'
 
-# Braintree settings
-BRAINTREE_MERCHANT_ID = 'bbbn3mtfpt6dj7pf'  # Merchant ID
-BRAINTREE_PUBLIC_KEY = '35hcpbyqgqy4myvq'   # Public Key
-BRAINTREE_PRIVATE_KEY = '14c7dfe050af2357efa1a7544df10d2d'  # Private key
 
-BRAINTREE_CONF = braintree.Configuration(
-    braintree.Environment.Sandbox,
-    BRAINTREE_MERCHANT_ID,
-    BRAINTREE_PUBLIC_KEY,
-    BRAINTREE_PRIVATE_KEY
-)
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
